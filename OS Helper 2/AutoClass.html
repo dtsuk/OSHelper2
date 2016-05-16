@@ -1,0 +1,78 @@
+<html>
+    <head>
+        <style>
+            body {
+                background-color: white;
+            }
+        h1 {
+            color: #8d0043;
+        }
+        h2 {
+            color: #8d0043;
+        }
+        p.code {
+            font-family: Courier New, monospace;
+        }
+        th, td {
+            border: 1px solid black;
+        }
+        </style>
+    </head>
+<body>
+<img src="DTS_Logo_watermark.jpeg" style="border: 0px" />
+<br/>
+<h1>AUTOMATIC CLASS SELECTION READ-ONLY VARIABLES</h1>
+
+<table cellpadding="15" cellspacing="0" border="1">
+<tr><th>Variable Name</th><th>Description</th><th>Language</th></tr>
+<tr><td>&ACCT_JOBZ</td><td>Job  acct  info</td><td>0-142  char</td></tr>
+<tr><td>&ACCT_STEP</td><td>Step  acct  info</td><td>0-142  char</td></tr>
+<tr><td>&ACSENVIR</td><td>Environment</td><td>RECALL,  RECOVER, RENAME,  RMMPOOL, RMMVRS,  CONVERT, ALLOC,  ALLOCTST, STORE,  CHANGE, CTRANS, other</td></tr>
+<tr><td>&ALLVOL</td><td>Volsers</td><td>Volsers  or REF=SD/ST/NS</td></tr>
+<tr><td>&ANYVOL</td><td>Explicit</td><td>volser	Volser  or REF=SD/ST/NS</td></tr>
+<tr><td>&APPLIC</td><td>RACF  applic  id</td><td>0-8  chars</td></tr>
+<tr><td>&BLKSIZE</td><td>blocksize</td><td>0-2147483647</td></tr>
+<tr><td>&DD</td><td>DD  name</td><td>1-8  chars</td></tr>
+<tr><td>&DEF_DATACLAS</td><td>RACF  resowner  DC</td><td>0-8  chars</td></tr>
+<tr><td>&DEF_MGMTCLAS</td><td>RACF  resowner  MC</td><td>0-8  chars</td></tr>
+<tr><td>&DEF_STORCLAS</td><td>RACF  resowner  SC</td><td>0-8  chars</td></tr>
+<tr><td>&DSN</td><td>Dataset  or cluster  name, without  relative generation</td><td>1-44  chars</td></tr>
+<tr><td>&DSNTYPE</td><td>Type  of  dataset</td><td>BASIC,  EXC,  EXR,  HFS, LARGE,  LIBRARY, PDS,  null</td></tr>
+<tr><td>&DSORG</td><td>dataset  org.</td><td>PS,  PO,  VS,  DA,  null</td></tr>
+<tr><td>&DSOWNER</td><td>RACF  owner  id</td><td>0-8  chars</td></tr>
+<tr><td>&DSTYPE</td><td>Type  of  dataset</td><td>GDS,  PERM,  TEMP,  null</td></tr>
+<tr><td>&EXPDT</td><td>Expiration  date</td><td>YYYYDDD</td></tr>
+<tr><td>&FILENUM</td><td>File  seq  no.</td><td>1-65535</td></tr>
+<tr><td>&GROUP</td><td>RACF  group</td><td>0-8  chars</td></tr>
+<tr><td>&HLQ</td><td>First  qual  of  dsn</td><td>1-8  chars</td></tr>
+<tr><td>&JOB</td><td>Job  name</td><td>1-8  chars</td></tr>
+<tr><td>&LABEL</td><td>type  of  dataset label</td><td>NL,  AL,  SL,  NSL, SUL,  AUL,  BLP, LTM,  blank</td></tr>
+<tr><td>&LIBNAME</td><td>Tape  library  name</td><td>0-8  chars</td></tr>
+<tr><td>&LLQ</td><td>Last  qual  of  dsn</td><td>1-8  chars</td></tr>
+<tr><td>&MAXSIZE</td><td>Max  dataset  size in  KB  or  MB</td><td>0KB-2147483647KB or<br/>0MB-2097151MB</td></tr>
+<tr><td>&MEMHLQ</td><td>Object  first  qual</td><td>0-8  chars</td></tr>
+<tr><td>&MEMLLQ</td><td>Object  last  qual</td><td>0-8  chars</td></tr>
+<tr><td>&MEMN</td><td>Object  name</td><td>0-44  chars</td></tr>
+<tr><td>&MEMNQUAL</td><td>Object  no.  quals</td><td>0-22</td></tr>
+<tr><td>&MSPDEST</td><td>Tape  mgmt  dest</td><td>0-44  chars</td></tr>
+<tr><td>&MSPARM</td><td>Tape  mgmt  parm</td><td>0-256  bytes,  with  2 byte  length  fields</td></tr>
+<tr><td>&MSPOLICY</td><td>VTS  policy  name</td><td>0-8  chars</td></tr>
+<tr><td>&MSPOOL</td><td>SMS  tape  pool</td><td>0-8  chars</td></tr>
+<tr><td>&NQUAL</td><td>No.  dsn  qual</td><td>0-22</td></tr>
+<tr><td>&NVOL</td><td>Max  of  vol  count, unit,  or  VOL=</td><td>0-2147483647</td></tr>
+<tr><td>&PGM</td><td>program  name</td><td>1-8  chars</td></tr>
+<tr><td>&RECORG</td><td>type  of  VSAM  org</td><td>KS,  ES,  RR,  LS,  null</td></tr>
+<tr><td>&RETPD</td><td>retention  period</td><td>0-2147483647</td></tr>
+<tr><td>&SECLABL</td><td>security  label</td><td>1-8  chars</td></tr>
+<tr><td>&SECOND_QTY</td><td>secondary  alloc</td><td>0-2147483647</td></tr>
+<tr><td>&SIZE</td><td>primary  space in  KB  or  MB</td><td>0KB  -  2147483647KB or<br/>0MB  -  2097151MB</td></tr>
+<tr><td>&SPACE_TYPE</td><td>secondary  space type</td><td>TRK,CYL,K,M,U,BLK, blank</td></tr>
+<tr><td>&SYSNAME</td><td>system  name</td><td>1-8  chars</td></tr>
+<tr><td>&SYSPLEX</td><td>sysplex  name</td><td>1-8  chars</td></tr>
+<tr><td>&UNIT</td><td>unit  generic</td><td>1-8  chars</td></tr>
+<tr><td>&USER</td><td>userid</td><td>1-8  chars</td></tr>
+<tr><td>&XMODE</td><td>Type  of  task</td><td>BATCH/TSO/TASK</td></tr>
+</table>
+
+</body>
+</html>

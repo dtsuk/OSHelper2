@@ -1,0 +1,163 @@
+<html>
+    <head>
+        <style>
+            body {
+                background-color: white;
+            }
+        
+        h1 {
+            color: #8d0043;
+        }
+        h2 {
+            color: #8d0043;
+        }
+        p.code {
+            font-family: Courier New, monospace;
+        }
+        th, td {
+            border: 1px solid black;
+        }
+        </style>
+    </head>
+<body>
+    <img src="DTS_Logo_watermark.jpeg" style="border: 0px" />
+    <br/>
+<h1>FDRABR Information<h1>
+
+<h2>Full or Incremental Backup</h2>
+
+<table cellpadding="15" cellspacing="0" width="75%"><tr><td>
+<p class="code">
+<strong>REQUIRED PARAMETERS</strong><br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;TYPE= FDR | ABR | DSF | AUTO <br/></br>
+DUMP | SIM | SNAP | SPLIT | FCOPY<br/>
+CONSNAP    |  CONSPLIT     | CONFCOPY<br/>
+CONPSNAP   |  CONPSPLIT    | CONFCOPY<br/></br>
+<strong>OPTIONAL PARAMETERS</strong><br/>
+AUTOUPD=YES | <u> NO </u><br/>
+BCV=(USE,RET)<br/>
+BUFNO=<u>MAX</u> | nn<br/>
+COMPRESS=ALL | COPY1 | COPY2<br/>
+COPY1=COPY2<br/>
+DATA=ALL | <u>USED</u><br/>
+DATEP=NONE<br/>
+DSNENQ=<u>NONE</u> | TEST | USE | HAVE<br/>
+EMSG=OK<br/>
+ENQ=<u>OFF</u> | ON | RESERVE<br/>
+ENQERR=NO<br/>
+ENQERR=BYPASS | <u>PROCESS</u><br/>
+FCOPY=(USE, &LT;REL&GT; | INCR)<br/>
+FORMAT=<u>NEW</u> | SPLIT<br/>
+HFS=QUIESCE<br/>
+ICFCORE=nnnnnn<br/>
+MAXAUTO=nnn<br/>
+MAXCARDS=nnnn<br/>
+MAXDD=nnnn<br/>
+MAXERR=nnnn<br/>
+MAXFILE=nnnn<br/>
+ONLINE<br/>
+ONLVOL<br/>
+PPRC=(USE,RET)<br/>
+PRINT=DSN | <u>ABR</u> | RPT<br/>
+RETPD=dddd<br/>
+RETPD2=dddd<br/>
+RTC=YES | <u>NO</u><br/>
+SELTERR=NO | YES<br/>
+SMSCONSTRUCT=YES | NO<br/>
+SMSMANAGE=<u>NO</u> | YES<br/>
+SMSPROT=NONE<br/>
+SNAP=(USE,&LT;REL&GT;   |  USE, &LT;RET&GT;)<br/>
+UPDATEFLAG=NOCHANGE<br/>
+VERIFYVOLSER=YES | <u>NO</u><br/>
+VOLSORT=<u>YES</u> | NO<br/>
+ZFS=QUIESCE<br/>
+</p>
+</td></tr><table>
+<p>&nbsp;</p>
+
+<h2>Dataset Restore From Dump</h2>
+
+<table cellpadding="15" cellspacing="0" width="75%"><tr><td>
+<p class="code">
+<strong>REQUIRED PARAMETERS</strong><br/>
+RESTORE  |  SIMREST&nbsp;&nbsp;&nbsp;TYPE=ABR<br/></br>
+<strong>OPTIONAL PARAMETERS</strong><br/>
+BLKF=nn<br/>
+BYPASSACS<br/>
+BYPASSSMS<br/>
+CATIFALLOC<br/>
+COPY=n<br/>
+DATA=ALL<br/>
+DSNENQ=NONE | TEST | USE | HAVE<br/>
+DYNTAPE  |  DYNTAPE2<br/>
+EMSG=OK<br/>
+FCOPY=FRR<br/>
+ICFCAT=ORIGINAL | STEPCAT | ALIAS<br/>
+MAXCARDS=nn<br/>
+NOCAT<br/>
+RECAT<br/>
+OPERATOR<br/>
+PRESTAGE<br/>
+RLSE<br/>
+%FREE=nn<br/>
+SELTERR=NO | YES<br/>
+SMSGDG=DEFERRED | ACTIVE | ROLLEDOFF | INPUT<br/>
+VRECAT<br/>
+</p>
+</td></tr><table>
+
+<p>&nbsp;</p>
+<h2>SELECT Statement - Restore From Backup</h2>
+
+<table cellpadding="15" cellspacing="0" width="75%"><tr><td>
+<p class="code">
+<strong>REQUIRED PARAMETERS</strong><br/>
+SELECT  |  EXCLUDE &nbsp;&nbsp;&nbsp;&nbsp;	   DSN=filter&nbsp;&nbsp; 	  DD=ddname<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CATDSN=filter&nbsp;&nbsp;   ALLDSN<br/><br/>
+<strong>OPTIONAL PARAMETERS</strong><br/>
+BLKF=nn<br/>
+CATALOG=catname<br/>
+MCATALOG=catname<br/>
+CATLIMITGDG=n<br/>
+COPY=n<br/>
+CYCLE=nn<br/>
+CATNEWN=newname<br/>
+DATA=ALL | NONE<br/>
+DATACLAS=dataclass<br/>
+NULLDATACLAS<br/>
+MGMTCLAS=managementclass<br/>
+NULLMGMTCLAS<br/>
+STORCLAS=storageclass<br/>
+NULLSTORCLAS<br/>
+DSNENQ=NONE<br/>
+GEN=nnnn<br/>
+NEWNAME=newdsname<br/>
+NEWGROUP=newgroup<br/>
+NEWINDEX=newindex<br/>
+CATNEWN=newname<br/>
+NEWDD=ddname<br/>
+NOCAT<br/>
+RECAT<br/>
+NOTIFY=userid<br/>
+NVOL=(vvvvvv,vvvvvv,...)<br/>
+OLDBACKUP=nn<br/>
+PRESTAGE<br/>
+PRTALIAS<br/>
+RLSE<br/>
+%FREE=nn<br/>
+TAPEDD=x<br/>
+TRK=nnnnn<br/>
+CYL=nnnnn<br/>
+VOL=vvvvvv<br/>
+VRECAT<br/>
+</p>
+</td></tr><table>
+
+
+
+
+
+
+</body>
+</html>

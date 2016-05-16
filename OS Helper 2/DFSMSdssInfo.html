@@ -1,0 +1,98 @@
+<html>
+    <head>
+        <style>
+            body {
+                background-color: white;
+            }
+        
+        h1 {
+            color: #8d0043;
+        }
+        h2 {
+            color: #8d0043;
+        }
+        p.code {
+            font-family: Courier New, monospace;
+        }
+        th, td {
+            border: 1px solid black;
+            margin: 5px;
+        }
+        </style>
+    </head>
+<body>
+    <img src="DTS_Logo_watermark.jpeg" style="border: 0px" />
+    <br/>
+<h1>DFSMSdss Information</h1>
+
+<h2>DFSMSdss Logical Dump</h2>
+
+<table><tr><td>
+<p class="code">
+<strong>REQUIRED PARAMETERS</strong><br/>
+DUMp  DATAset(filter)   |  FILterdd(ddn) OUTDDname(DDN)<br/></br/>
+<strong>OPTIONAL PARAMETERS</strong><br/>
+ADMINistrator     ALLData(dsn  |  *)  ALLExcp<br/>
+CANcelerror  CHECKvtoc  CICSVRBACKUP  COMPRESS/HWCOMPRESS<br/>
+CONCurrent  PREFERRED/ANYPREF/(CP   |VP  |REQUIRED  |<br/>
+ANYREQ  |  CR  |  VR  |  NO  |  STD)<br/>
+NOTIFYCONCurrent<br/>
+DELete  DYNALloc  FCWITHDRAW  FORCECP(days)<br/>
+INCAT(catname)   ONLYINCAT<br/>
+LOGINDDname(ddn)   LOGINDYnam(volser,&lt;unit&gt;)<br/>
+    OPTimize(1  |  2  |  3  |  4)  PASsword(ddn|dsn/pswd)<br/>
+    PROCESS(SYS1)   PURge<br/>
+    READIOPacing(nnn)   RESEt<br/>
+    SELECTMulti(ALL   |  ANY  |  FIRST)<br/>
+    SHAre  SPHERE  STORGRP(grpname)<br/>
+    TOLerate(IOEror,   ENQFailure)<br/>
+    UNCATalog<br/>
+    VALIDATE  |  NOVALIDATE<br/>
+    WAIT(nsecs,ntries)<br/>
+    RSA(label)  ENCRYPT(CLRAES128   |  CLRTDES  |  ENCTDES)<br/>
+    KEYPASSWORD(pw)  IOCOUNT(n)  ENCRTYPE(CLRAES128  |  CLRTDES)<br/>
+</p>
+</td></tr><table>
+<p>&nbsp;</p>
+
+<h2>DFSMSdss LOGICAL RESTORE</h2>
+
+<table><tr><td>
+<p class="code">
+<strong>REQUIRED PARAMETERS</strong><br/>
+RESTore  DATASet(filter)   |  FILTerdd(ddn) INDDname(ddn)<br/>
+<strong>OPTIONAL PARAMETERS</strong>
+ADMINistrator   AUTORELBlockaddress BYPASSACS(dsn)   BCSRECOVER(LOCK   |  SUSPEND) CANcelerror<br/>
+CATalog  |  RECATalog(newcatname   |  *)| DELETECATALOGENTRY<br/>
+DYNALloc  DEBUG(SMSMSG)   FORce  FORCECP(days) FREESPACE  (ci%,ca%)  IMPORT  MAKEMULTI KEYPASSWORD(pwd)<br/>
+MENtity(modeldsn)   MVOLser(volser) MGMTCLAS(mcname)|   NULLMGMTCLAS NOPACKing(dsn)<br/>
+OUTDDname(ddn)   |  OUTDYnam(volser,unit) PERCENTUtilized(n)   PASsword(  ddn|dsn/pswd) PROCESS(UNDEFinedsorg)   REBLock(dsn) RELBlockaddress(dsn) RENAME/RENAMEUnconditional(prefix)<br/>
+((oldname,newname)) ((prefix,(oldname,newname))<br/>
+REPLACE  REPLACEUnconditional   SHAre  SPHERE STORCLAS(scname)   |  NULLSTORCLAS<br/>
+TGTAlloc(  BLK  |  CYL  |  TRK  |  SOURCE) TGTGDS(DEFERRED   |  ACTIVE  |  ROLLEDOFF  |  SOURCE) TOLerate(ENQFailure)   TTRAddress(dsn)<br/>
+VOLcount(*  |  SRC  |  N(nn)  |  ANY) WAIT(nsecs,ntries)   WRItecheck KEYPASSWORD(pw)   RSA(label)<br/>
+</p>
+</td></tr><table>
+
+<p>&nbsp;</p>
+
+<h2>DFSMSdss FILTERING</h2>
+<em>INClude(dsnmask) EXClude(dsnmask)<br/>
+    BY((criteria,op,value),(criteria,op,value)…)</em>
+<table><tr><td>
+<p class="code">
+BY Criteria	Operators	Possible Values<br/>
+ALLOC	EQ,  NE	CYL|TRK|BLK|ABSTR|MOV<br/>
+CATLG	EQ	YES|NO<br/>
+CREDT,REFDT, EXPDT	LT,GT,EQ, NE,GE,LE	Yyyyddd|*,&lt;n,-n&gt;|NEVER<br/>
+&nbsp;&nbsp;&nbsp;    DSCHA	EQ,  NE	YES  |  NO<br/>
+&nbsp;&nbsp;&nbsp;    DSORG	EQ,  NE	SAM|PAM|PDS|PDSE|HFS| BDAM|ISAM|VSAM|zFS|EXCP<br/>
+&nbsp;&nbsp;&nbsp;    DATACLAS, MGMTCLAS, STORCLAS	EQ,  NE	Class  name<br/>
+&nbsp;&nbsp;&nbsp;    EXTNT,FSIZE	LT,GT,EQ, NE,GE,LE	0-99999999<br/>
+&nbsp;&nbsp;&nbsp;    MULTI	EQ	YES|NO<br/><br/>
+</p>
+</td></tr><table>
+<em>Wildcard Characters:  % * ** or GDG generation number</em><br/>
+
+</body>
+</html>

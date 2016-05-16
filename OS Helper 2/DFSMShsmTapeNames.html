@@ -1,0 +1,96 @@
+<html>
+    <head>
+        <style>
+            body {
+                background-color: white;
+            }
+        
+        h1 {
+            color: #8d0043;
+        }
+        h2 {
+            color: #8d0043;
+        }
+        code {
+            font-family: Courier New, monospace;
+        }
+        th, td {
+            border: 1px solid black;
+            margin: 5px;
+        }
+        </style>
+    </head>
+<body>
+
+<h1>DFSMSHSM</h1>
+<h2> TAPE DATASET NAMING CONVENTION</h2>
+<p class="code">
+<strong>Backup to original</strong><br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;prefix.BACKTAPE.DATASET<br/>
+<strong>Backup to alternate</strong><br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;prefix.copy.BACKTAPE.DATASET<br/>
+<strong>Migration to original</strong><br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;prefix.HMIGTAPE.DATASET<br/>
+<strong>Migration to alternate</strong><br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;prefix.COPY.HMIGTAPE.DATASET<br/>
+<strong>Dump</strong><br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;prefix.DMP.dumpclass.Vvolser.Dyyddd.Tssmmhh<br/> 
+<strong>Spill</strong><br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;prefix.BACKTAPE.DATASET<br/>
+<strong>Recycle Backup to original</strong><br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;prefix.BACKTAPE.DATASET<br/>
+<strong>Tape copy (backup)</strong><br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;prefix.COPY.BACKTAPE.DATASET<br/>
+<strong>Tape copy (migration)</strong><br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;prefix.COPY.HMIGTAPE.DATASET<br/>
+<strong>Recycle Backup to alternate</strong><br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;prefix.COPY.BACKTAPE.DATASET<br/>
+<strong>Recycle Migration to original</strong><br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;prefix.HMIGTAPE.DATASET<br/>
+<strong>Recycle Migration to Alternate</strong><br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;prefix.COPY.HMIGTAPE.DATASET<br/>
+<strong>CDS Backup (DATAMOVER=HSM) </strong><br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;uid.BCDS.BACKUP.Vnnnnnnn <br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;UID.MCDS.BACKUP.Vnnnnnnn <br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;UID.OCDS.BACKUP.Vnnnnnnn <br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;UID.JRNL.BACKUP.Vnnnnnnn<br/>
+<strong>CDS Backup (DATAMOVER=DSS) </strong><br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;UID.BCDS.BACKUP.Dnnnnnnn <br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;UID.MCDS.BACKUP.Dnnnnnnn <br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;UID.OCDS.BACKUP.Dnnnnnnn <br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;UID.JRNL.BACKUP.Dnnnnnnn<br/>
+<strong>ABARS Backup - control file</strong><br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;outputdatasetprefix.C.CccVnnnn<br/>
+<strong>DFSMSdss data</strong><br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;outputdatasetprefix.D.CccVnnnn<br/>
+<strong>Instruction file</strong><br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;outputdatasetprefix.I.CccVnnnn<br/>
+<strong>'other' Mig and Tape file</strong><br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;outputdatasetprefix.O.CccVnnnn<br/>
+<br/>
+
+<h1>FDRABR</h1>
+<h2>TAPE DATASET NAMING CONVENTION</h2>
+
+<strong>Incremental and Full Volume Backup</strong><br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;FDRABR.Vvolser.Cnggggcc<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;n=  copy  number  (1-9)<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;gggg=generation   number  (1-9999)<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;cc=cycle  number  (1-63)<br/><br/>
+
+<strong>Archive Backup</strong><br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;FDRABR.Vvolser.bnyydddx <br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;b=identifier  (B,D-J) <br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;n=copy  number  (1-2) <br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;yyddd  =  Julian  date<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;x  =  occurrence  number  (A-Z,  0-9)<br/><br/>
+
+<strong>Application Backup</strong><br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;abrindex.Vvolser.bnyydddx<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;abrindex  =  HLQ  of  Application  A.C.F<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;remainder  =  same  as  Archive  Backup<br/>
+<br/>
+</p>
+
+</body>
+</html>

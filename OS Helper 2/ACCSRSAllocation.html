@@ -1,0 +1,83 @@
+<html>
+    <head>
+        <style>
+            body {
+                background-color: white;
+            }
+        
+        h1 {
+            color: #8d0043;
+        }
+        h2 {
+            color: #8d0043;
+        }
+        p.code {
+            font-family: Courier New, monospace;
+        }
+        th, td {
+            border: 1px solid black;
+            margin: 5px;
+        }
+        </style>
+    </head>
+<body>
+
+<img src="DTS_Logo_watermark.jpeg" style="border: 0px" />
+<br/>
+
+<h1>ACC/SRS Sample Allocation and Error-Prevention Rules</h1>
+
+<h2>Enforce System Naming and Space Standards</h2>
+<p class="code">
+IF  &DSNAME  =  SYSA.**<br/>
+&nbsp;&nbsp;&nbsp;&QUAL2  NE  'PROD'<br/>
+&nbsp;&nbsp;&nbsp;THEN  ISSUE  WRITEMSG(BADDSN)<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SET  &JCLFAIL  =  YES<br/>
+<br/>
+IF  &QUAL2  =  TEST*<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&SIZE-M  GT  100<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&SYSID  EQ  'SYSA'<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;THEN  SET  &PSPACE  =  200<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SET  &SPACE  =  CYL<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ISSUE  WRITEMSG(WARNSPC)<br/>
+<br/>
+DEFMSG  BADDSN  'DATASET  &DSNAME  NOT  VALID  FOR PROD  -  JOB  FAILED'<br/>
+<br/>
+DEFMSG  WARNSPC  ‘WARNING  -  TEST  DATASETS  LIMITED TO  100MB  OR  200  CYLS  ON  SYSB<br/>
+</p>
+
+<p>&nbsp;</p>
+<h2>Control DASD and Tape Allocation and Prevent Space Errors</h2>
+<p class="code">
+IF  &DSNAME  =  PROD*<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&UNITTYPE  =  DASD<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;THEN  SET  &DISKPOOL  =  PRODPOOL<br/>
+<br/>
+DEFPOOL  PRODPOOL  ALGORITHM(MAXSPACE)<br/>
+&nbsp;REDUCEP(PERCENT(10)   LIMIT(10))<br/>
+&nbsp;REDUCES(YES  PERCENT(10)  LIMIT(10))<br/>
+&nbsp;ADDVOL(YES  MAXVOL(20))<br/>
+<br/>
+IF  &SYSID  =  SYSA<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&CURDAY  NE  (SATURDAY,  SUNDAY)<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&UNITTYPE  =  TAPE<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&VOLSER  EQ  X3????<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;THEN  SET  &TAPEPOOL  =  TAPEP1<br/>
+<br/>
+DEFPOOL  TAPEP1
+UNITADDR=(1537,1538,1539)
+</p>
+
+<p>&nbsp;</p>
+<h2>Prevent Unnecessary DFSMShsm Recalls</h2>
+<p class="code">
+IF  &PGM  =  IEFBR14<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&DISP1  =  (NEW,MOD)<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&DISP2  =  (DELETE)<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;THEN  SET  &HDELETE  =  YES<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SET  &PSPACE  =  0<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SET  &SPACE  =  TRK<br/>
+</p>
+
+</body>
+</html>

@@ -1,0 +1,101 @@
+<html>
+    <head>
+        <style>
+            body {
+                background-color: white;
+            }
+        
+        h1 {
+            color: #8d0043;
+        }
+        h2 {
+            color: #8d0043;
+        }
+        p.code {
+            font-family: Courier New, monospace;
+        }
+        th, td {
+            border: 1px solid black;
+            margin: 5px;
+        }
+        </style>
+    </head>
+<body>
+<img src="DTS_Logo_watermark.jpeg" style="border: 0px" />
+<br/>
+<h1>DFSMShsm INFORMATION</h1>
+
+<h2>DELETE MIGRATED DATASET WITH MISSING/DAMAGED MCD RECORD</h2>
+<p class="code">
+CONNECT  (userid)  GROUP(ARCCATGP)   AUTHORITY(USE)<br/>
+LOGON  userid  /  password  GROUP(ARCCATGP)<br/>
+DELETE  dsname  NOSCRATCH<br/>
+</p>
+<h2>DFSMSHSM ADDVOL COMMAND</h2>
+<p class="code">
+ADDVOL     volser  UNIT(unit)  BACKUP  (bkup-parms)<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;DUMP 	(dump-parms)<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MIGRATION  (mig-parms)<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PRIMARY  (prim-parms)<br/>
+</p>
+<p>&nbsp;</p>
+<strong>Options for BACKUP Volumes</strong><br/>
+DAILY(n)  |  SPILL 	THRESHOLD(nnn)<br/>
+<p>&nbsp;</p>
+<strong>Options for DUMP Volumes</strong><br/>
+DUMPCLASS(class)   DENSITY(2|3|4)<br/>
+<p>&nbsp;</p>
+<strong>Options for MIGRATION Volumes</strong><br/>
+<table cellspacing="0" cellpadding="15">
+	<tr><td>AUTODUMP(classes)</td><td>NOAUTODUMP</td></tr> 
+	<tr><td>DRAIN</td><td>NODRAIN</td></tr>
+	<tr><td>ML1</td><td>ML2</td></tr>
+	<tr><td>OVERFLOW</td><td>NOOVERFLOW</td></tr> 
+	<tr><td>SDSP</td><td>NOSDSP </td></tr>
+	<tr><td>THRESHOLD(nnn)</td><td></td></tr>
+</table>
+<p>&nbsp;</p>
+<strong>Options for PRIMARY Volumes</strong> <br/>
+<p class="code">
+AUTOBACKUP	|   NOAUTOBACKUP <br/>
+AUTODUMP(class)  |   NOAUTODUMP<br/> 
+AUTOMIGRATION	|   NOAUTOMIGRATION <br/>
+AUTORECALL	|  NO   AUTORECALL <br/>
+BACKUPDEVICECATEGORY(TAPE|DASD|NONE)<br/> 
+MIGRATE(days) 	|  DELETEBYAGE(days)   | DELETEIFBACKEDUP(days)<br/>
+THRESHOLD(hi low)<br/>
+TRACKMANAGEDTHRESHOLD(hi low)<br/>
+</p>
+<p>&nbsp;</p>
+<h2>DFSMSHSM QUERY COMMAND</h2>
+<p class="code">
+QUERY<br/>
+ABARS<br/>
+ACTIVE&lt;(tcbaddr)&gt;<br/>
+ARPOOL(aggregate)<br/>
+AUTOPROGRESS<br/>
+BACKUP(ALL  |  DAILY(day)  |  SPILL  |  UNASSIGNED<br/>
+CDSVERSIONBACKUP<br/>
+COMMONQUEUE&lt;(RECALL)&gt;<br/>
+CONTROLDATASETS<br/>
+COPYPOOL  (cpname)<br/>
+CSALIMITS<br/>
+DATASETNAME(dsname)<br/>
+REQUEST(reqnum)<br/>
+USER(userid)<br/>
+IMAGE<br/>
+ML2<br/>
+POOL<br/>
+RETAIN<br/>
+SECURITY<br/>
+SETSYS<br/>
+SPACE(volser)<br/>
+STARTUP<br/>
+STATISTICS<br/>
+TRAPS<br/>
+VOLUMEPOOL<br/>
+WAITING<br/>
+</p>
+
+</body>
+</html>

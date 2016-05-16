@@ -17,7 +17,7 @@
                BlueprintIdentifier = "6ECC74561CD8283A00E09D99"
                BuildableName = "OS Helper 2.app"
                BlueprintName = "OS Helper 2"
-               ReferencedContainer = "container:OS Helper 2.xcodeproj">
+               ReferencedContainer = "container:DTS Pocket Ref.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -35,7 +35,7 @@
                BlueprintIdentifier = "6ECC746C1CD8283A00E09D99"
                BuildableName = "OS Helper 2Tests.xctest"
                BlueprintName = "OS Helper 2Tests"
-               ReferencedContainer = "container:OS Helper 2.xcodeproj">
+               ReferencedContainer = "container:DTS Pocket Ref.xcodeproj">
             </BuildableReference>
          </TestableReference>
          <TestableReference
@@ -45,7 +45,7 @@
                BlueprintIdentifier = "6ECC74771CD8283B00E09D99"
                BuildableName = "OS Helper 2UITests.xctest"
                BlueprintName = "OS Helper 2UITests"
-               ReferencedContainer = "container:OS Helper 2.xcodeproj">
+               ReferencedContainer = "container:DTS Pocket Ref.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -55,7 +55,7 @@
             BlueprintIdentifier = "6ECC74561CD8283A00E09D99"
             BuildableName = "OS Helper 2.app"
             BlueprintName = "OS Helper 2"
-            ReferencedContainer = "container:OS Helper 2.xcodeproj">
+            ReferencedContainer = "container:DTS Pocket Ref.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -78,7 +78,7 @@
             BlueprintIdentifier = "6ECC74561CD8283A00E09D99"
             BuildableName = "OS Helper 2.app"
             BlueprintName = "OS Helper 2"
-            ReferencedContainer = "container:OS Helper 2.xcodeproj">
+            ReferencedContainer = "container:DTS Pocket Ref.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -97,7 +97,7 @@
             BlueprintIdentifier = "6ECC74561CD8283A00E09D99"
             BuildableName = "OS Helper 2.app"
             BlueprintName = "OS Helper 2"
-            ReferencedContainer = "container:OS Helper 2.xcodeproj">
+            ReferencedContainer = "container:DTS Pocket Ref.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

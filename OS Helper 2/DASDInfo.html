@@ -1,0 +1,175 @@
+<html>
+    <head>
+        <style>
+            body {
+                background-color: white;
+            }
+        
+        h1 {
+            color: #8d0043;
+        }
+        h2 {
+            color: #8d0043;
+        }
+        p.code {
+            font-family: Courier New, monospace;
+        }
+        th, td {
+            border: 1px solid black;
+        }
+        </style>
+    </head>
+<body>
+    <img src="DTS_Logo_watermark.jpeg" style="border: 0px" />
+    <br/>
+<h1>DASD DEVICE INFORMATION</h1>
+
+<h2>VTOC DSCB TYPES</h2>
+
+<table cellpadding="5" cellspacing="0">
+	<tr>
+		<td>0</td><td>Free</td><td>Available VTOC entry</td>
+	</tr>
+	<tr>
+		<td>1</td><td>Identifier</td><td>First 3 dataset extents</td>
+	</tr>
+	<tr>
+		<td>2</td><td>Index</td><td>ISAM indexes</td>
+	</tr>
+	<tr>
+		<td>3</td><td>Extension</td><td>4th and subsequent extents</td>
+	</tr>
+	<tr>
+		<td>4</td><td>VTOC</td><td>VTOC self-describing entry</td>
+	</tr>
+	<tr>
+		<td>5</td><td>Free space</td><td>Available extents  (nonindexed VTOC)</td>
+	</tr>
+	<tr>
+		<td>6</td><td>Split</td><td>VSE split-cyl extent (no longer used)</td>
+	</tr>
+	<tr>
+		<td>7</td><td>Free space</td><td>Available extents > trk 65535 (nonindexed VTOC)</td>
+	</tr>
+	<tr>
+		<td>8</td><td>Identifier</td><td>First 3 dataset extents (EAV-eligible dataset)</td>
+	</tr>
+	<tr>
+		<td>9</td><td>Metadata</td><td>Additional data and F3 pointers (EAV-eligible dataset)</td>
+	</tr>
+</table>
+
+<h2>DASD DEVICE CAPACITIES</h2>
+<table cellpadding="5" cellspacing="0">
+	<tr>
+		<th>Model</th><th>Cyls</th><th>Bytes/trk</th><th>GB/volume</th>	
+	</tr>
+	<tr>
+		<td>9345-1</td><td>	1440</td><td>	46456</td><td>	1.00</td>
+	</tr>
+	<tr>
+		<td>9345-2</td><td>2156</td><td>	46456</td><td>	1.50</td>
+	</tr>
+	<tr>
+		<td>3380-J</td><td>	885</td><td>	47476</td><td>	0.63</td>
+	</tr>
+	<tr>
+		<td>3380-E</td><td>	1770</td><td>	47476</td><td>	1.26</td>
+	</tr>
+	<tr>
+		<td>3380-K</td><td>	2655</td><td>	47476</td><td>	1.89</td>
+	</tr>
+	<tr>
+		<td>3390-1</td><td>	1113</td><td>	56664</td><td>	0.95</td>
+	</tr>
+	<tr>
+		<td>3390-2</td><td>	2226</td><td>	56664</td><td>	1.89</td>
+	</tr>
+	<tr>
+		<td>3390-3</td><td>	3339</td><td>	56664</td><td>	2.83</td>
+	</tr>
+	<tr>
+		<td>3390-9</td><td>	10017</td><td>	56664</td><td>	8.51</td>
+	</tr>
+	<tr>
+		<td>3390-27</td><td>	32760</td><td>	56664</td><td>	27.84</td>
+	</tr>
+	<tr>
+		<td>3390-54</td><td>	65520</td><td>	56664</td><td>	55.69</td>
+	</tr>
+	<tr>
+		<td>EAV1</td><td>	262668</td><td>	56664</td><td>	223.00</td>
+	</tr>
+	<tr>
+		<td>EAV2</td><td>	1182006</td><td>	56664</td><td>	1000.00</td>
+	</tr>
+</table>
+<em>*EAV architectural limit is 268,434,453 cylinders</3m>
+
+<h2>DATASET / DEVICE TYPE CODES</h2>
+<table cellpadding="5" cellspacing="0">
+	<tr>
+		<th>Dataset Type</th><th>DEVTYPE Code</th><th>&nbsp;</th>
+	</tr>	
+	<tr>
+		<td>DUMMY dataset</td><td>0000 0000</td><td>&nbsp;</td>
+	</tr>	
+	<tr>
+		<td>TSO terminal</td><td>	0000 0101</td><td>&nbsp;</td>
+	</tr>	
+	<tr>
+		<td>SYSIN/SYSOUT</td><td>	0000 0102</td><td>&nbsp;</td>
+	</tr>	
+	<tr>
+		<td>USS (HFS, zFS)</td><td>	0000 0103</td><td>&nbsp;</td>
+	</tr>
+	<tr>
+		<th>Dataset</th><th> Type</th><th>DEVTYPE Code</td>
+	</tr>	
+	<tr>
+		<th>Dataset Type</th><th>UCBTYP Code</th><th>&nbsp;</th>
+	</tr>	
+
+	<tr>
+		<td>3380</td><td>3010 200E</td><td>&nbsp;</td>	
+	</tr>
+	<tr>
+		<td>3390</td><td>	3010 200F</td><td>&nbsp;</td>
+	</tr>	
+	<tr>
+		<td>9345</td><td>	3010 2004</td><td>&nbsp;</td>	
+	</tr>
+	<tr>
+		<td>3400-2</td><td>	30C0 8003</td><td>	Models 3, 5, 7</td>
+	</tr>
+	<tr>
+		<td>3400-5</td><td>	3200 8003</td><td>	Models 4, 6, 8 (6250)</td>
+	</tr>
+	<tr>
+		<td>3400-6</td><td>	3210 8003</td><td>	Models 4, 6, 8 (6250/1600)</td>
+	</tr>
+	<tr>
+		<td>3400-9</td><td>	3300 8003</td><td>	3420C</td>
+	</tr>
+	<tr>
+		<td>3400-3</td><td>	3400 8003</td><td>	3430</td>
+	</tr>
+	<tr>
+		<td>3480</td><td>	7800 8080	</td><td>&nbsp;</td>
+	</tr>
+	<tr>
+		<td>3480X</td><td>	7804 8080</td><td>	3480 or 3490 with IDRC</td>
+	</tr>
+	<tr>
+		<td>3490</td><td>	7804 8081</td><td>	3490 enhanced</td>
+	</tr>
+	<tr>
+		<td>3590-1</td><td>	7804 8083</td><td>	3590</td>
+	</tr>
+	<tr>
+		<td>3592</td><td>	7804 8083	</td><td>&nbsp;</td>
+	</tr>
+</table>	
+
+</body>
+</html>

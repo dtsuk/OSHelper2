@@ -1,0 +1,215 @@
+<html>
+    <head>
+        <style>
+            body {
+                background-color: white;
+            }
+        
+        h1 {
+            color: #8d0043;
+        }
+        h2 {
+            color: #8d0043;
+        }
+        p.code {
+            font-family: Courier New, monospace;
+        }
+        table, th, td {
+            border: 1px solid black;
+        }
+        </style>
+    </head>
+<body>
+
+<img src="DTS_Logo_watermark.jpeg" style="border: 0px" />
+<br/>
+
+<h1>USEFUL CONSOLE COMMANDS</h1>
+
+<h2>Display SMS Subsystem Information</h2>
+
+<p class="code">
+D  SMS,  ACTIVE<br/>
+,CACHE<br/>
+,CFCACHE(structurename|*)<br/>
+,CFLS(ALL|lockstructurename)<br/>
+,CFVOL(volid)<br/>
+,CICSVR[,{ALL|LOGSTREAMS({LogstreamName|ALL})|RCDS}<br/>
+,DRIVE(name|ALL)   ,STATUS|DETAIL<br/>
+,DSNAME(dsn)<,WTOR><br/>
+,JOB(jobname)<,WTOR><br/>
+,{LIBRARY|LIB}(name|ALL)<,STATUS,LISTDRI,DETAIL><br/>
+,LOG(logstreamid|ALL)<,WTOR><br/>
+,MONDS(specmask|*)<br/>
+,OAM<br/>
+,OPTIONS<br/>
+,OSMC&lt;,TASK(name)&gt;<br/>
+,PDSE|PDSE1  ,LATCH(laddr)   ,DETAILED|SUMMARY<br/>
+,MODULE(modname)   ,VSTOR<br/>
+,HSPSTATS<,DSN(dsname)   |  STORCLAS(sc)  |  UNMANAGED<br/>
+,HPSTATS,  SUMMARY  |  MAXDSNS(nnn)<br/>
+,CONNECTIONS,DSN(dsname)   &lt;,VOL(volser)&gt;<br/>
+,SEP<br/>
+,SHCDS<br/>
+,SHUNTED,&lt;SPHERE(sphere)|UR(urid|ALL)&gt;&lt;,WTOR&gt;<br/>
+,SMSVSAM&lt;,ALL&gt;<br/>
+,SMSVSAM,QUIESCE<br/>
+,STORGRP(storgrp|ALL)&lt;,LISTVOL|,DETAIL&gt;<br/>
+,TRACE<br/>
+,TRANVSAM&lt;,ALL,ALLLOGS,WTOR&gt;<br/>
+,URID(urid|ALL)&lt;,WTOR&gt;<br/>
+,VOLUME(volume)<br/>
+
+<h2>Display Subsystem Information</h2>
+
+D  OPDATA,PREFIX-display   subsytem  command  prefixes<br/>
+D  SSI,  LIST,  ALL&lt;,  SUB=sname&gt;-display  subsytems  info<br/>
+
+<h2>Automatically Allocate System Dump Datasets</h2>
+
+DUMPDS  NAME=name   pattern<br/>
+(default=SYS1.DUMP.D&YYMMDD..T&HHMMSS..&SYSNAME..S&SEQ.)<br/>
+DUMPDS ALLOC=ACTIVE   |  INACTIVE<br/>
+DUMPDS  ADD,SMS=((S=storclas,M=mgmtclas,D=dataclas))<br/>
+&nbsp;&nbsp;or<br/>
+DUMPDS ADD,VOL=(volser   list)<br/>
+&nbsp;&nbsp;or<br/>
+DUMPDS  ADD,DSN=(nn,nn,nn-nn...)   (for  non-auto  alloc)<br/>
+
+<h2>Activate an SMS Configuration</h2> 
+SETSMS  SAVEACDS(backup.acds) <br/>
+SETSMS  SCDS(scds)<br/   &lt;ACDS(acds)&gt;<br/>
+<em>The current ACDS should be saved to a backup ACDS before activating a new configuration. Specifying the ACDS operand will cause the named ACDS to be overlaid with the SCDS contents.</em><br/>
+
+<h2>Copy an SCDS to an ACDS without Activation</h2>
+SETSMS  COPYSCDS(scdsname,acdsname)<br/>
+
+<h2>Display / Alter Volume and Storgrp Status</h2>
+D  SMS,VOL(vvvvvv)<br/>
+D  SMS,SG(storgrp),[LISTVOL]<br/>
+VARY  SMS,SG(storgrp)  ,ENABLE VOL(volser),QUIESCE[,NEW]
+,DISABLE[,NEW]<br/>
+
+<h2>Display Linklist, LPA, APF Libraries, Dynamic Exits</h2>
+D  PROG,LNKLST<br/>
+D  PROG,LPA[,MODNAME=modname]<br/>
+D  PROG,APF<br/>
+D  PROG,EXIT,EXITNAME=exitname<br/>
+&nbsp;&nbsp;[,MODNAME=modname][,DIAG]<br/>
+
+<h2>Add Dataset to Linklist</h2>
+SETPROG  LNKLST,DEFINE,NAME=listname,COPYFROM=CURRENT SETPROG<br/>  &nbsp;&nbsp;LNKLST,ADD,name=listname,DSNAME=dsn, 
+&nbsp;&nbsp;ATTOP|ATBOTTOM|AFTER=dsn<br/>
+SETPROG  LNKLST,ACTIVATE,name=listname
+
+<h2>Free a Linklisted Dataset</h2>
+STOP  LLA<br/>
+MODIFY  LNKLST,UNALLOCATE<br/>
+
+<h2>APF-Authorize a Load Library</h2>
+SETPROG  APF,ADD,DSNAME=dsn,SMS   |  VOL=volser<br/>
+
+<h2>SET SMS SUBSYSTEM  OPTIONS </h2>
+<em>Configuration Parameters</em> <br/>
+ACDS(dsname) AKP({nnn[,nnn[...,nnn]]   |1000}) <br/>
+BREAKPOINTVALUE   (0-65520)<br/>
+CA_RECLAIM(NONE|{DATACLAS|DATACLASS})<br/>
+COPYSCDS(scds_dsn,   acds_dsn)<br/>
+SCDS(dsname)<br/>
+SAVEACDS(dsname)<br/>
+COMMDS(dsname)<br/>
+FAST_VOLSEL(ON|OFF)<br/>
+HONOR_DSNTYPE_PDSE(YES|NO)<br/>
+MAXLOCKS({max|0},{incr|0})<br/>
+PDSE1_BUFFER_BEYOND_CLOSE   (YES  |  NO  )<br/>
+PDSE1_DIRECTORY_STORAGE   (nnn)<br/>
+PS_EXT_VERSION(1|2)<br/>
+PDSE1_HSP_SIZE(nnnn)<br/>
+PDSE_SYSEVENT_DONTSWAP   (YES  |  NO)<br/>
+QTIMEOUT({nnn|300})<br/>
+RLS_MAXCFFEATURELEVEL({A|Z})<br/>
+RLS_MAX_POOL_SIZE(nnn)<br/>
+RLSINIT({NO|YES})<br/>
+RLSTMOUT({nnn|0})<br/>
+SAM_USE_HPF({YES|NO})<br/>
+SUPPRESS_DRMSGS({YES|NO})<br/>
+SUPPRESS_SMSMSG({YES|NO,IGD17054I,IGD17227I,IGD17395I})<br/>
+Interval Parameters INTERVAL(nnn) DINTERVAL(nnn) DSSTIMEOUT(nnnn) CACHETIME(nnnnn) BMFTIME(nnnnn)<br/>
+DEADLOCK_DETECTION(iiii,kkkk) LRUCYCLES(cycles) LRUTIME(seconds)<br/>
+SMF_TIME(YES   or  NO)<br/>
+
+<h2>CICSVR Option Parameters</h2> 
+CICSVR_INIT(YES   or  NO) <br/>
+CICSVR_DSNAME_PREFIX(user_prefix)<br/> 
+CICSVR_RCDS_PREFIX(cicsvr_rcds_prefix)<br/> 
+CICSVR_ZZVALUE_PARM(zzvalue_string)<br/>
+
+<h2>Trace and VOLSELMSG Option Parameters</h2> 
+TRACE  (ON  or   OFF) <br/>
+TYPE(ERROR|ALL[(TRACE|T|VOLSELMSG|V)[,ALL|ERROR(TR ACE|T|VOLSELMSG|V)]])<br/>
+VOLSELMSG(ON|OFF,0|nnnnn|ALL) JOBNAME(jobname|*[(TRACE|T|VOLSELMSG|V)[,job- name|*(TRACE|T|VOLSELMSG|V)]]) ASID(asid|*[(TRACE|T|VOLSELMSG|V)[,asid|*(TRACE|T| VOLSELMSG|V)]])<br/>
+STEPNAME(stepname|*) SELECT(option[,option]...) DESELECT(option[,option]...)<br/>
+
+<h2>Display SMF Dataset Names</h2>
+D  SMF,S<br/>
+
+<h2>Display SMF Options</h2>
+D  SMF,O<br/>
+Display Device Information<br/>
+DEVSERV  PATHS,devnum,nn,<ONLINE   |  OFFLINE> SMS<br/>
+
+DEVSERV  QDASD,devnum,<filters   and  options> QTAPE<br/>
+
+DEVSERV  QDASD  |QTAPE,?  displays  syntax  details<br/>
+
+DEVSERV  QPAVS,devnum,&lt;VOLUME|UCB|UNBOX&gt;<br/>
+
+<h2>Display System Configuration Info</h2>
+D  PARMLIB D  IPLINFO D  M=CPU<br/>
+M=DEVICE(devnum) M=CHP(channel   paths)<br/>
+
+<h2>SMS AND OAM/LCS CONSOLE COMMANDS FOR SMS-MANAGED TAPE AND MANUAL TAPE LIBRARIES (MTL)</h2>
+<table>
+	<tr>
+		<th>DISPLAY  SMS,OAM</th><td>-  display  OAM  status</td>
+	</tr>
+	<tr>
+		<th>DISPLAY  SMS,LIBRARY (ALL),DETAIL</th><td>-  display  library  status (ALL  or  selected  libraries)</td>
+	</tr>
+	<tr>
+		<th>VARY  SMS,LIBRARY (libname),ONLINE</th><td>-  vary  a  library  online</td>
+	</tr>
+	<tr>
+		<th>VARY  SMS,LIBRARY (libname),OFFLINE</th><td>-  vary  a  library  online</td>
+	</tr>
+	<tr>
+		<th></th>LIBRARY  ENTER,volser, libname,MEDIAn<td>-  enter  a  tape  volume  into  a library  (MEDIAtype  optionalif a default data class is specified in library definition)</td>
+	</tr>
+	<tr>
+		<th>LIBRARY  EJECT,volser, PURGE</th><td>-  eject  a  volume  (no  physical
+movement  from  an  MTL)</td>
+	</tr>
+	<tr>
+		<th>KEEP LOCATION
+LIBRARY  SETCL,
+deviceno, 	MEDIAn</th><td>-  set  default  media  type  for
+cartridge  loader</td>
+	</tr>
+	<tr>
+		<th>ANY</th><td>(ANY  applies  only  to  MTL)</td>
+	</tr>	
+	<tr>
+		<th>LIBRARY  DISPDRV, deviceno</th><td>-  display  tape  drive  status
+libraryname</td>
+	</tr>	
+	<tr>
+		<th>DISPLAY  SMS,VOL(volser)</th><td>-  display  tape  volume  status</td>
+	</tr>
+</table>
+
+<em>(It  is  also  possible  to  display  status  of  all  the volumes  in  a  tape  library  via  ISMF  option  2  - Volume  List).</em>
+
+</p>
+
+</body>
+</html>

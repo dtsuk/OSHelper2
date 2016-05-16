@@ -1,0 +1,54 @@
+<html>
+    <head>
+        <style>
+            body {
+                background-color: white;
+            }
+        
+        h1 {
+            color: #8d0043;
+        }
+        h2 {
+            color: #8d0043;
+        }
+        p.code {
+            font-family: Courier New, monospace;
+        }
+        th, td {
+            border: 1px solid black;
+        }
+        </style>
+    </head>
+<body>
+    <img src="DTS_Logo_watermark.jpeg" style="border: 0px" />
+    <br/>
+<h1>Volume Mounting and Usage</h1>
+
+<h2>NON-SMS DASD VOLUME USE ATTRIBUTES</h2>
+
+<table cellpadding="15" cellspacing="0" width="75%">
+	<tr>
+		<td>Use Attribute</td><td>Perm Datasets</td><td>Temporary Datasets</td>
+	</tr>
+	<tr>
+		<td>PRIVATE</td><td>only if VOL=</td><td>only if VOL=</td>
+	</tr>
+	<tr>
+		<td>PUBLIC</td><td>only if VOL=</td><td>if no VOL=</td>
+	</tr>
+	<tr>
+		<td>STORAGE</td><td>only if VOL=</td><td>if no VOL= and noPUBLIC available</td>
+	</tr>
+<table>
+<p>&nbsp;</p>
+<em>If the ‘PRIVATE’  subparameter of VOL= is specified, then the volume must have a use attribute of PRIVATE.</em>
+
+<h2>VOLUME MOUNT ATTRIBUTES</h2>
+<p class="code">
+<strong>PERMRES</strong> – Volume cannot be demounted<br/>
+<strong>RESERVED</strong> – Volume remains mounted until explicitly UNLOADed<br/>
+<strong>REMOVABLE</strong> – Volume demounted at end of job/when needed<br/>
+</p>
+
+</body>
+</html>

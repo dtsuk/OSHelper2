@@ -1,0 +1,121 @@
+<html>
+    <head>
+        <style>
+            body {
+                background-color: white;
+            }
+        h1 {
+            color: #8d0043;
+        }
+        h2 {
+            color: #8d0043;
+        }
+        p.code {
+            font-family: Courier New, monospace;
+        }
+        th, td {
+            border: 1px solid black;
+        }
+        </style>
+    </head>
+<body>
+<img src="DTS_Logo_watermark.jpeg" style="border: 0px" />
+<br/>
+
+
+<h1>VSAM / IDCAMS Information</h1>
+
+<h2>Delete Orphan VVDS Record</h2>
+<p class="code">
+//IDCAMS  EXEC  PGM=IDCAMS<br/>
+//SYSPRINT  DD  SYSOUT=*<br/>
+//DD1  DD  UNIT=SYSDA,VOL=SER=vvvvvv,DISP=SHR<br/>
+//SYSIN  DD  *<br/>
+DELETE&nbsp;component.name&nbsp;VVR&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;FILE(DD1)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CAT(cat.name.in.vvr)<br/>
+<br/>
+<em>If a non-VSAM record is to be removed, the 'NVR' parameter should be used instead of 'VVR'</em>
+</p>
+<p>&nbsp;</p>
+<br/>
+
+<h2>Recatalog a VSAM Cluster that has become Uncatalogued</h2>
+<p class="code">
+//GO  EXEC  PGM=IDCAMS,<br/>
+//SYSPRINT  DD  SYSOUT=*<br/>
+//SYSIN  DD  *<br/>
+&nbsp;&nbsp;DEFINE  CL(NAME(cluster-name)   RECATALOG  type     -<br/>
+&nbsp;&nbsp;VOL(volser)  )<br/>
+<br/>
+<em>Note: the type of dataset (indexed, relative record, linear, etc.) and the volume on which<br/> 
+the dataset resides must be specified in the DEFINE.</em>
+</p>
+<p>&nbsp;</p>
+<br/>
+
+
+<h2>Delete Catalog Entry</h2>
+<p class="code">
+//GO  EXEC  PGM=IDCAMS<br/>
+//SYSPRINT  DD  SYSOUT=*<br/>
+//SYSIN  DD  *<br/>
+&nbsp;&nbsp;DELETE  CL  cluster-name  NOSCRATCH<br/>
+</p>
+<p>&nbsp;</p>
+<br/>
+
+
+<h2>Scan a VVDS for Errors</h2>
+<p class="code">
+//GO  EXEC  PGM=IDCAMS<br/>
+//SYSPRINT  DD  SYSOUT=*<br/>
+//VVDS     DD  DSN=SYS1.VVDS.Vvolser,<br/>
+// 	UNIT=SYSDA,VOL=SER=volser,<br/>
+// 	AMP='AMORG',DISP=SHR<br/>
+//SYSIN  DD  *<br/>
+&nbsp;&nbsp;DIAGNOSE  VVDS  INFILE(VVDS)<br/>
+</p>
+<p>&nbsp;</p>
+<br/>
+
+
+<h2>Alter SMS Class Information</h2>
+<p class="code">
+//  EXEC  PGM=IDCAMS<br/>
+//SYSPRINT  DD  SYSOUT=*<br/>
+//SYSIN  DD  *<br/>
+&nbsp;ALTER  entryname  STORCLAS(new-storclas)   -<br/>
+&nbsp;&nbsp;&nbsp;MGMTCLAS(new-mgmtclas)<br/>
+</p>
+<p>&nbsp;</p>
+<br/>
+
+
+<h2>List Aliases in the Master Catalog</h2>
+<p class="code">
+//  EXEC  PGM=IDCAMS<br/>
+//SYSPRINT  DD  SYSOUT=*<br/>
+//SYSIN  DD  *<br/>
+&nbsp;LISTC  ALIAS  ALL  CAT(mastercatname)<br/>
+</p>
+<p>&nbsp;</p>
+<br/>
+
+
+<h2>Print the contents of the VVDS</h2>
+<p class="code">
+//PRNTVVDS  EXEC  PGM=IDCAMS<br/>
+//SYSPRINT  DD  SYSOUT=A<br/>
+//VVDS  DD  DSN=SYS1.VVDS.Vvolser,<br/>
+//  DISP=SHR,  UNIT=SYSDA,<br/>
+//  VOL=SER=volser,AMP=AMORG<br/>
+//SYSIN  DD  *<br/>
+&nbsp;&nbsp;PRINT  INFILE(VVDS)<br/>
+</p>
+<p>&nbsp;</p>
+<br/>
+
+
+</body>
+</html>

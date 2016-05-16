@@ -1,0 +1,102 @@
+<html>
+    <head>
+        <style>
+            body {
+                background-color: white;
+            }
+        
+        h1 {
+            color: #8d0043;
+        }
+        h2 {
+            color: #8d0043;
+        }
+        code {
+            font-family: Courier New, monospace;
+        }
+        th, td {
+            border: 1px solid black;
+            margin: 5px;
+        }
+        </style>
+    </head>
+<body>
+
+<img src="DTS_Logo_watermark.jpeg" style="border: 0px" />
+<br/>
+
+<h1>Dataset Limits</h1>
+
+<h2>NON-Extended-Format</h2>
+
+<table cellpadding="15" cellspacing="0">
+<p class="code">
+<tr>
+<th>DS Type</th>
+<th>Extents /Vol</th>
+<th>Max Vols</th>
+<th>Max Stripes</th>
+<th>Size Limit</th></tr>
+<tr><td>PS</td><td>16</td><td>59</td><td>0</td><td>65K tracks unless DSNTYPE=LARGE</td></tr>
+<tr><td>DA</td><td>16</td><td>59</td><td>0</td><td>255 extents</td></tr>
+<tr><td>PDS</td><td>16</td><td>1</td><td>0</td><td>	65K tracks</td></tr>
+<tr><td>PDSE</td><td>123</td><td>1</td><td>0</td><td>522,236 members<br/>15,728,639 records/member</td></tr>
+<tr><td>HFS</td><td>123</td><td>1</td><td>0</td><td>2GB</td></tr>
+<tr><td>VSAM</td><td>123</td><td>59</td><td>0</td><td>4GB, 255 extents/component</td></tr>
+<tr><td>VIO</td><td>1</td><td>1</td><td>0</td><td>65K trks, or 2000GB/<br/>VIOMAXSIZE if SMS</td></tr>
+<tr><td>Tape</td><td>n/a</td><td>255</td><td>&nbsp;</td><td>Fileseq=65535<br/>(9999 if LABEL=AL)</td></tr>
+</p>
+</table>
+<p>&nbsp;</p>
+<br/>
+<h2>Extended-Format</h2>
+
+<table cellpadding="15" cellspacing="0">
+<p class="code">
+<tr>
+<th>DS Type</th>
+<th>Extents /Vol</th>
+<th>Max Vols</th>
+<th>Max Stripes</th>
+<th>Size Limit</th></tr>
+<tr><td>Single-striped PS</td><td>123</td><td>59</td><td>1</td><td>&nbsp;</td></tr>
+<tr><td>Multi-striped PS</td><td>123</td><td>59</td><td>59</td><td>4GB blocks<br/>7257 extents</td></tr>
+<tr><td>VSAM striped</td><td>123</td><td>59</td><td>16</td><td>255 extents/stripe</td></tr>
+<tr><td>VSAM ECR</td><td>123</td><td>59</td><td>16</td><td>7257 extents</td></tr>
+<tr><td>VSAM-EA</td><td>123</td><td>59</td><td>16</td><td>128TB</td></tr>
+</p>
+</table>
+<em>
+VSAM stripes may extend to additional volumes.<br/>
+EA = Extended Addressability attribute of SMS Data Class<br/>
+ECR = Extent Constraint Relief attribute of SMS Data Class<br/>
+zFS (z/OS Unix) files are VSAM linear datasets<br/>
+</em>
+<p>&nbsp;</p>
+<br/>
+
+<h2>VSAM</h2>
+
+<table cellpadding="15" cellspacing="0">
+<p class="code">
+<tr>
+<th>DS Type</th>
+<th>Extents /Comp</th>
+<th>Max Stripes</th>
+<th>Extents /Stripe</th>
+<th>Extents /Vol</th>
+<th>Max Extents</th>
+<th>Max Vols /Comp</th>
+<th>Size Limit</th></tr>
+<tr><td>non SMS</td><td>255</td><td>n/a</td><td>n/a</td><td>123</td><td>255</td><td>59</td><td>4GB</td></tr>
+<tr><td>SMS</td><td>255</td><td>n/a</td><td>n/a</td><td>123</td><td>255</td><td>59</td><td>4GB</td></tr>
+<tr><td>SMS, EA</td><td>255</td><td>n/a</td><td>n/a</td><td>123</td><td>255</td><td>59</td><td>128TB</td></tr>
+<tr><td>SMS, striped</td><td>255</td><td>16</td><td>123</td><td>123</td><td>4080</td><td>59</td><td>4GB</td></tr>
+<tr><td>SMS, striped, EA</td><td>255</td><td>16</td><td>123</td><td>123</td><td>4080</td><td>59</td><td>128TB</td></tr>
+<tr><td>SMS, ECR</td><td>Unlimited</td><td>16</td><td>123</td><td>123</td><td>7257</td><td>59</td><td>4GB</td></tr>
+<tr><td>SMS, ECR, EA</td><td>Unlimited</td><td>16</td><td>123</td><td>123</td><td>7257</td><td>59</td><td>128TB</td></tr>
+</table>
+</p>
+
+</body>
+</html>

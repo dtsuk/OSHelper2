@@ -10,9 +10,17 @@ import UIKit
 
 class SecondViewController: UIViewController {
 
+    @IBOutlet weak var webView: UIWebView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        let URL = NSURL(string: "http://www.dtssoftware.com/company_aboutdts.htm")
+        
+        webView.loadRequest(NSURLRequest(URL: URL!))
+        
+        
     }
 
     override func didReceiveMemoryWarning() {

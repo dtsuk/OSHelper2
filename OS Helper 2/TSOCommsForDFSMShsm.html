@@ -1,0 +1,73 @@
+<html>
+    <head>
+        <style>
+            body {
+                background-color: white;
+            }
+        h1 {
+            color: #8d0043;
+        }
+        h2 {
+            color: #8d0043;
+        }
+        p.code {
+            font-family: Courier New, monospace;
+        }
+        th, td {
+            border: 1px solid black;
+        }
+        </style>
+    </head>
+<body>
+<img src="DTS_Logo_watermark.jpeg" style="border: 0px" />
+<br/>
+
+<h1>TSO COMMANDS  FOR DFSMSHSM</h1>
+
+<strong>Recall a Migrated Dataset</strong><br/>
+HRECALL(dsn)  WAIT|NOWAIT  EXTENDRC <br/>
+VOLUME(volser)   UNIT(type) <br/>
+DAOPTION(SAMETRK|RELTRK|RELBLK) <br/>
+<p>&nbsp;</p>
+
+<strong>Recover a Dataset From Backup</strong><br/>
+HRECOVER(dsn)   GENERATION(nnnn)   NEWNAME(newn)<br/> 
+&nbsp;&nbsp;&nbsp;REPLACE  WAIT|NOWAIT  EXTENDRC<br/>
+&nbsp;&nbsp;&nbsp;DATE(date)  TIME(time)  VERSION(nnnn)  FROMVOLUME(vol)<br/> 
+&nbsp;&nbsp;&nbsp;TOVOLUME(vol)   UNIT(type) <br/>
+&nbsp;&nbsp;&nbsp;DAOPTION(SAMETRK|RELTRK|RELBLK)<br/>
+<p>&nbsp;</p>
+
+<strong>List BCDS and MCDS Information</strong><br/>
+
+HLIST  BVOL(volser)|PVOL|MVOL|ML1|ML2&lt;(DASD|TAPE)&gt;<br/> 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;VOLUME(volser)   BCDS|MCDS|BOTH<br/>
+<br/>
+HLIST  DSNAME(dsn)|LEVEL(qual) BCDS|MCDS|BOTH<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SUMMARY INCLUDEPRIMARY SELECT(AGE(min,max))<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(ML1|ML2) (VOLUME(volser)) RETAINDAYS<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ACTIVE SDSP|NOSDSP VSAM<br/>
+<br/>
+HLIST  USER(userid)<br/>
+<br/>
+HLIST  parms  TERMINAL|OUTDATASET(dsn)|SYSOUT(class)
+<p>&nbsp;</p>
+<strong>Delete Backup Versions</strong><br/>
+HBDELETE  (dsn,  dsn...)  ALL  |  DATE(date)  TIME(time)| VERSIONS(nnn,nnn...)   FROMVOLUME(vol)<br/>
+<p>&nbsp;</p>
+<strong>Delete Migrated Datasets<strong><br/>
+HDELETE  (dsn,  dsn...)  PURGE  WAIT|NOWAIT  EXTENDRC<br/>
+<p>&nbsp;</p>
+<strong>Issue Arbitrary DFSMShsm Commands</strong><br/>
+HSENDCMD  WAIT|NOWAIT  command<br/>
+
+<em>The issuer of HSENDCMD must be a DFSMShsm-authorized user for any commands other than ALTERDS, BDELETE, and QUERY</em>
+
+
+
+
+
+
+
+</body>
+</html>

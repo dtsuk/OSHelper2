@@ -1,0 +1,137 @@
+<html>
+    <head>
+        <style>
+            body {
+                background-color: white;
+            }
+        
+        h1 {
+            color: #8d0043;
+        }
+        h2 {
+            color: #8d0043;
+        }
+        p.code {
+            font-family: Courier New, monospace;
+        }
+        th, td {
+            border: 1px solid black;
+            margin: 5px;
+        }
+        </style>
+    </head>
+<body>
+
+<img src="DTS_Logo_watermark.jpeg" style="border: 0px" />
+<br/>
+
+<h1>General Purpose Register</h1>
+
+<h2>Standard 72-Byte Save Area</h2>
+<table cellpadding="15" cellspacing="0">
+<tr>
+<th>Byte Offset <br/> (Hex)</th>
+<th>Content</th></tr>
+<td>0</td><td>	any data</td></tr>
+<td>4</td><td>	HSA</td></tr>
+<td>8</td><td>	LSA</td></tr>
+<td>C</td><td>	R14</td></tr>
+<td>10</td><td>	R15</td></tr>
+<td>14</td><td>	R0</td></tr>
+<td>18</td><td>	R1</td></tr>
+<td>1C</td><td>	R2</td></tr>
+<td>20</td><td>	R3</td></tr>
+<td>24</td><td>	R4</td></tr>
+<td>28</td><td>	R5</td></tr>
+<td>2C</td><td>	R6</td></tr>
+<td>30</td><td>	R7</td></tr>
+<td>34</td><td>	R8</td></tr>
+<td>38</td><td>	R9</td></tr>
+<td>3C</td><td>	R10</td></tr>
+<td>40</td><td>	R11</td></tr>
+<td>44</td><td>	R12</td></tr>
+</table>
+<p>&nbsp;</p>
+<br/>
+
+<h2>Standard 144-Byte Save Area for <br/>
+Programs Starting in AMODE64</h2>
+<table cellpadding="15" cellspacing="0">
+<tr>
+<th>Byte Offset <br/> (Hex)</th>
+<th>Content</th></tr>
+<td>0</td><td>	Reserved</td></tr>
+<td>4</td><td>	C'F4SA'</td></tr>
+<td>8</td><td>	R14</td></tr>
+<td>10</td><td>	R15</td></tr>
+<td>18</td><td>	R0</td></tr>
+<td>20</td><td>	R1</td></tr>
+<td>28</td><td>	R2</td></tr>
+<td>30</td><td>	R3</td></tr>
+<td>38</td><td>	R4</td></tr>
+<td>40</td><td>	R5</td></tr>
+<td>48</td><td>	R6</td></tr>
+<td>50</td><td>	R7</td></tr>
+<td>58</td><td>	R8</td></tr>
+<td>60</td><td>	R9</td></tr>
+<td>68</td><td>	R10</td></tr>
+<td>70</td><td>	R11</td></tr>
+<td>78</td><td>	R12</td></tr>
+<td>80</td><td>	HSA</td></tr>
+<td>88</td><td>	LSA</td></tr>
+</table>
+<p>&nbsp;</p>
+<br/>
+
+<h2>208-Byte Save Area for AMODE24 or 31 <br/>
+Programs Calling AMODE64 Programs</h2>
+<table cellpadding="15" cellspacing="0">
+<th>Byte Offset</th>	
+<th>Content</th></tr>
+<td>0</td><td>	Reserved</td></tr>
+<td>4</td><td>	C'F5SA'</td></tr>
+<td>8</td><td>	R14</td></tr>
+<td>10</td><td>	R15</td></tr>
+<td>18</td><td>	R0</td></tr>
+<td>20</td><td>	R1</td></tr>
+<td>28</td><td>	R2</td></tr>
+<td>30</td><td>	R3</td></tr>
+<td>38</td><td>	R4</td></tr>
+<td>40</td><td>	R5</td></tr>
+<td>48</td><td>	R6</td></tr>
+<td>50</td><td>	R7</td></tr>
+<td>58</td><td>	R8</td></tr>
+<td>60</td><td>	R9</td></tr>
+<td>68</td><td>	R10</td></tr>
+<td>70</td><td>	R11</td></tr>
+<td>78</td><td>	R12</td></tr>
+<td>80</td><td>	HSA</td></tr>
+<td>88</td><td>	LSA</td></tr>
+<td>90</td><td>	R0 high half</td></tr>
+<td>94</td><td>	R1 high half</td></tr>
+<td>98</td><td>	R2 high half</td></tr>
+<td>9C</td><td>	R3 high half</td></tr>
+<td>A0</td><td>	R4 high half</td></tr>
+<td>A4</td><td>	R5 high half</td></tr>
+<td>A8</td><td>	R6 high half</td></tr>
+<td>AC</td><td>	R7 high half</td></tr>
+<td>B0</td><td>	R8 high half</td></tr>
+<td>B4</td><td>	R9 high half</td></tr>
+<td>B8</td><td>	R10 high half</td></tr>
+<td>BC</td><td>	R11 high half</td></tr>
+<td>C0</td><td>	R12 high half</td></tr>
+<td>C4</td><td>	R13 high half</td></tr>
+<td>C8</td><td>	R14 high half</td></tr>
+<td>CC</td><td>	R15 high half</td></tr>
+</table>
+<br/>
+<strong><em>Other Save Area Formats,</em></strong><br/>
+<em>
+Programs that use the linkage stack also supply a save area pointed to by R13:<br/>
+C'F1SA' in the second word of the save area indicates an 18-word save area, with registers saved in the linkage stack<br/>
+C'F6SA' in the second word of the save area indicates a 36-word save area, with registers saved in the linkage stack<br/>
+</em>
+</p>
+
+</body>
+</html>

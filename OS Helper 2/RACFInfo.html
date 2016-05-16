@@ -1,0 +1,224 @@
+<html>
+    <head>
+        <style>
+            body {
+                background-color: white;
+            }
+        
+        h1 {
+            color: #8d0043;
+        }
+        h2 {
+            color: #8d0043;
+        }
+        p.code {
+            font-family: Courier New, monospace;
+        }
+        th, td {
+            border: 1px solid black;
+            margin: 5px;
+        }
+        </style>
+    </head>
+<body>
+
+<img src="DTS_Logo_watermark.jpeg" style="border: 0px" />
+<br/>
+
+<h1>RACF Information</h1>
+<p class="code">
+<h2>Allow Access to a RACF Resource</h2>
+PERMIT  profile-name &nbsp; ACCESS(access-type)<br/>
+&nbsp;CLASS(class-name)   ID(userid)<br/>
+<br/>
+</p>
+<p>&nbsp;</p>
+
+<h2>Find all DSNs for a Profile</h2>
+LD &nbsp; DA('profile') &nbsp; ALL  DSNS<br/>
+<br/>
+</p>
+<p>&nbsp;</p>
+
+<h2>Find all Profiles for a User</h2>
+LD &nbsp; ID(userid)<br/>
+</p>
+<p>&nbsp;</p>
+
+<br/>
+<h2>List Profile Information (even if Generic exists)</h2>
+LD &nbsp; DA('dsname') &nbsp; GENERIC<br/>
+<br/>
+</p>
+<p>&nbsp;</p>
+
+<h2>List Group Information</h2>
+LG &nbsp; group-name &nbsp; DFP<br/>
+<br/>
+</p>
+<p>&nbsp;</p>
+
+<h2>List User attributes</h2>
+LU &nbsp; (user1,user2,user3) &nbsp;&nbsp;&nbsp;  DFP &nbsp;&nbsp;&nbsp; TSO<br/>
+<br/>
+</p>
+<p>&nbsp;</p>
+
+<h2>Change a User Password</h2>
+PW &nbsp; PASSWORD(current &nbsp; new) &nbsp; USER(userid)<br/>
+<br/>
+</p>
+<p>&nbsp;</p>
+
+<h2>Reset a User Password to Default Group</h2>
+PW &nbsp; USER(userid)<br/>
+<br/>
+</p>
+<p>&nbsp;</p>
+
+<h2>Delete Access to a Tape Volume</h2>
+PERMIT &nbsp; tapevolser &nbsp; CLASS(TAPEVOL) &nbsp; USER(userid) &nbsp; DELETE<br/>
+</p>
+<p>&nbsp;</p><br/>
+
+<h2>Add a Generic Profile</h2>
+ADDSD &nbsp; 'hlq.qual2.*' &nbsp; UACC(access-type)<br/>
+<br/>
+</p>
+<p>&nbsp;</p>
+
+<h2>Restrict use of a Storage Class</h2>
+SETROPTS &nbsp; CLASSACT(STORCLAS)  &nbsp;  RACLIST(STORCLAS)<br/>
+RDEFINE  STORCLASS &nbsp; storclas-name &nbsp; UACC(NONE)<br/>
+PERMIT &nbsp; storclas-name  &nbsp; CLASS(STORCLAS) &nbsp;  -<br/>
+ID(userID)  ACCESS(READ)<br/>
+SETROPTS &nbsp; REFRESH &nbsp; RACLIST(STORCLAS)<br/>
+<br/>
+</p>
+<p>&nbsp;</p>
+
+<h2>DFSMSdss Facility Class Profiles</h2>
+STGADMIN.ADR.COPY.BYPASSACS<br/>
+STGADMIN.ADR.RESTORE.BYPASSACS<br/>
+STGADMIN.ADR.CGCREATE<br/>
+STGADMIN.ADR.COPY.CNCURRNT<br/>
+STGADMIN.ADR.DUMP.CNCURRNT<br/>
+STGADMIN.ADR.CONSOLID<br/>
+STGADMIN.ADR.CONVERTV<br/>
+STGADMIN.ADR.DEFRAG<br/>
+STGADMIN.ADR.RESTORE.DELCATE<br/>
+STGADMIN.ADR.COPY.FCFREEZE<br/>
+STGADMIN.ADR.COPY.FCSETGT<br/>
+STGADMIN.ADR.COPY.FCTOPPRCP<br/>
+STGADMIN.ADR.DEFRAG.FCTOPPRCP<br/>
+STGADMIN.ADR.CONSOLID.FLASHCPY<br/>
+STGADMIN.ADR.COPY.FLASHCPY<br/>
+STGADMIN.ADR.DEFRAG.FLASHCPY<br/>
+STGADMIN.ADR.RESTORE.IMPORT<br/>
+STGADMIN.ADR.COPY.INCAT<br/>
+STGADMIN.ADR.DUMP.INCAT<br/>
+STGADMIN.ADR.RELEASE.INCAT<br/>
+STGADMIN.ADR.DUMP.NEWNAME<br/>
+STGADMIN.ADR.COPY.PROCESS.SYS<br/>
+STGADMIN.ADR.DUMP.PROCESS.SYS<br/>
+STGADMIN.ADR.RELEASE.PROCESS.SYS<br/>
+STGADMIN.ADR.COPY.TOLERATE.ENQF<br/>
+STGADMIN.ADR.DUMP.TOLERATE.ENQF<br/>
+STGADMIN.ADR.RESTORE.TOLERATE.ENQF<br/>
+<br/>
+</p>
+<p>&nbsp;</p>
+<h2>ABARS Facility Class Profiles</h2>
+STGADMIN.ARC.ABACKUP<br/>
+STGADMIN.ARC.ABACKUP.agname<br/>
+STGADMIN.ARC.ARECOVER<br/>
+STGADMIN.ARC.ARECOVER.agname<br/>
+STGADMIN.ARC.ARECOVER.agname.REPLACE<br/>
+<br/>
+</p>
+<p>&nbsp;</p>
+<h2>IDCAMS Facility Class Profiles</h2>
+STGADMIN.IDC.BINDDATA<br/>
+STGADMIN.IDC.DCOLLECT<br/>
+STGADMIN.IDC.DIAGNOSE.CATALOG<br/>
+STGADMIN.IDC.DIAGNOSE.VVDS<br/>
+STGADMIN.IDC.EXAMINE.DATASET<br/>
+STGADMIN.IDC.LISTDATA<br/>
+STGADMIN.IDC.LISTDATA.ACCESSCODE<br/>
+STGADMIN.IDC.SETCACHE<br/>
+STGADMIN.IDC.SETCACHE.DISCARDPINNED<br/>
+STGADMIN.IDC.SETCACHE.PENDINGOFF<br/>
+STGADMIN.IDC.SETCACHE.REINITIALIZE<br/>
+STGADMIN.IDC.SETCACHE.SUBSYSTEM<br/>
+<br/>
+</p>
+<p>&nbsp;</p>
+<h2>STORAGE ADMIN CMD Keyword Profiles</h2>
+STGADMIN.DPDSRN.olddsname<br/>
+STGADMIN.IFG.READVTOC.volser<br/>
+STGADMIN.IGD.ACTIVATE.CONFIGURATION<br/>
+STGADMIN.IGG.ALTBCS<br/>
+STGADMIN.IGG.ALTER.SMS<br/>
+STGADMIN.IGG.ALTER.UNCONVRT<br/>
+STGADMIN.IGG.DEFDEL.UALIAS<br/>
+STGADMIN.IGG.DEFNVSAM.NOBCS<br/>
+STGADMIN.IGG.DEFNVSAM.NONVR<br/>
+STGADMIN.IGG.DELETE.NOSCRTCH<br/>
+STGADMIN.IGG.DELGDG.FORCE<br/>
+STGADMIN.IGG.DELNVR.NOBCSCHK<br/>
+STGADMIN.IGG.DIRCAT<br/>
+STGADMIN.IGG.DLVVRNVR.NOCAT<br/>
+STGADMIN.IGG.LIBRARY<br/>
+STGADMIN.IGWSHCDS.REPAIR<br/>
+<br/>
+</p>
+<p>&nbsp;</p>
+<p class="code">
+<h2>DFSMSrmm Facility Class Profiles</h2>
+STGADMIN.EDG.ACTIONS.action<br/>
+STGADMIN.EDG.AV.status.volser<br/>
+STGADMIN.EDG.CD.COPYFROM.dsname<br/>
+STGADMIN.EDG.CD.VX4<br/>
+STGADMIN.EDG.CMOVE.location.destination<br/>
+STGADMIN.EDG.CRLSE.action<br/>
+STGADMIN.EDG.CV.[HOLD|NOHOLD].volser<br/>
+STGADMIN.EDG.CV.RM3<br/>
+STGADMIN.EDG.DV.SCRATCH.volser<br/>
+STGADMIN.EDG.EDGUPDT.UPDATE<br/>
+STGADMIN.EDG.FORCE STGADMIN.EDG.HOUSEKEEP<br/>
+STGADMIN.EDG.HOUSEKEEP.RPTEXT<br/>
+STGADMIN.EDG.IGNORE.TAPE.volser<br/>
+STGADMIN.EDG.IGNORE.TAPE.RMM.volser<br/>
+STGADMIN.EDG.IGNORE.TAPE.NORMM.vols<br/>
+STGADMIN.EDG.LABEL.volser<br/>
+STGADMIN.EDG.LISTCONTROL<br/>
+STGADMIN.EDG.MASTER<br/>
+STGADMIN.EDG.NOLABEL.volser<br/>
+STGADMIN.EDG.OPERATOR<br/>
+STGADMIN.EDG.OWNER.userid<br/>
+STGADMIN.EDG.RELEASE<br/>
+STGADMIN.EDG.RESET.SSI<br/>
+STGADMIN.EDG.VRS<br/>
+STGADMIN.EDG.INERS.WRONGLABEL<br/>
+<br/>
+</p>
+<p>&nbsp;</p>
+<h2>OTHER RACF Resources</h2>
+<table cellpadding="15" cellspacing="0"><tr>
+<td><strong>Class</strong></td>
+<td><strong>Resource Name</strong></td></tr>
+<tr><td>TSOPROC</td><td>PARMLIB</td></tr>
+<tr><td>FIELD</td><td>RESOWNER<br/>
+                    (dataset  profiles)</td></tr>
+<tr><td>FIELD</td><td>DEF_DATACLAS<br/>DEF_STORCLAS<br/>DEF_MGMTCLAS<br/>DATAAPL<br/>
+(user/grp  profiles)</td></tr>         
+<tr><td>STORCLAS</td><td>Class Name</td></tr>
+<tr><td>MGMTCLAS</td><td>Class Name</td></tr>
+</table>
+
+
+<p class="code">
+</p>
+
+</body>
+</html>

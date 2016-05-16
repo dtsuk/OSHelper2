@@ -1,0 +1,107 @@
+<html>
+    <head>
+        <style>
+            body {
+                background-color: white;
+            }
+        
+        h1 {
+            color: #8d0043;
+        }
+        h2 {
+            color: #8d0043;
+        }
+        p.code {
+            font-family: Courier New, monospace;
+        }
+        th, td {
+            border: 1px solid black;
+            margin: 5px;
+        }
+        </style>
+    </head>
+<body>
+
+<img src="DTS_Logo_watermark.jpeg" style="border: 0px" />
+<br/>
+
+<h1>Dataset Naming Conventions</h1>
+
+<h2>DB2 Tablespace/Indexspace</h2>
+<p class="code">
+<strong>hlq.DSNDBx.dbname.spname.y0001.Ammm</strong><br/>
+hlq&nbsp;&nbsp;&nbsp;&nbsp;= catalog alias<br/>
+x&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;= C (cluster) &nbsp;or D(data)<br/>
+dbname = &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;database name<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;DSNDB06 = DB2 catalog<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;DSNDB01 = DB2 directory<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;DSNDB07 = work database<br/> 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;DSNDB04 = default database<br/>
+spname = tablespace or indexspace name<br/>
+y&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;= I (standard) or S (shadow) or T (temp)<br/>
+mmm&nbsp;&nbsp;&nbsp;&nbsp;= dataset no. or partition no.<br/>
+</p>
+<p>&nbsp;</p>
+<br/>
+
+<h2>DB2 BSDS / Active Log</h2> 
+<p class="code">
+<strong>hlq.BSDS0n hlq.LOGCOPYn.DSmmm</strong><br/>
+hlq&nbsp;&nbsp;&nbsp; = catalog alias<br/>
+n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;= copy no. (1 or 2)<br/>
+mm&nbsp;&nbsp;&nbsp;= archive log no. (01-92)<br/>
+</p>
+<p>&nbsp;</p>
+<br/>
+
+
+<h2>DB2 Archive Log / BSDS Backup</h2>
+<p class="code">
+<strong>hlq.ARCHLOGn.Dyyddd.Thhmmsst.axxxxxx</strong><br/>
+hlq&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;= catalog alias<br/>
+n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;= copy no. (1 or 2)<br/>
+Dyyddd.Thhmmsst = timestamp (2 or 4 digit yr)<br/>
+A&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; = A (Archive Log) or B (BSDS bkup)<br/>
+xxxxxxx = file sequence<br/>
+</p>
+<p>&nbsp;</p>
+<br/>
+
+
+<h2>DB2 Image Copy</h2>
+<p class="code">
+<em>(sample, may vary by installation)</em><br/>
+<strong>hlq.wxiyyddd.Thhmmss.spname.Ammm</strong><br/>
+hlq&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;= catalog alias<br/>
+w&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;= copy type, P (primary) or S (secondary)<br/>
+x&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;= copy requirement, S(std) or H(critical)<br/>
+I&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;= copy frequency, D(daily),W(weekly),M(monthly)<br/>
+yyddd.Thhmmss = date / time<br/>
+spname = tablespace or indexspace name<br/>
+mmm    = dataset identifier<br/>
+</p>
+<p>&nbsp;</p>
+<br/>
+
+
+<h2>Dynamic Dump Datasets</h2>
+<p class="code">
+<strong>SYS1.DUMP.D&DATE..T&TIME..&SYSNAME.S&SEQ</strong><br/>
+</p>
+<p>&nbsp;</p>
+<br/>
+
+
+<h2>Temporary Datasets</h2>
+<p class="code">
+<strong>SYSyyddd.Thhmmss.RA000.jjobname.Rggnnnnn</strong><br/>
+<strong>SYSyyddd.Thhmmss.RA000.jjobname.tempname.Hgg</strong></br>
+tempname = &DSNAME specified<br/>
+gg&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;= 01 or sysplex id<br/>
+nnnnn&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;= unique no. within a system<br/>
+</p>
+<p>&nbsp;</p>
+<br/>
+
+</body>
+</html>
